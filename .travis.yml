@@ -1,0 +1,37 @@
+# TravisCI configuration for szepeviktor/Gregorian-Coding-Standard
+
+language: "php"
+os:
+  - "linux"
+dist: "bionic"
+
+php:
+  - "7.1"
+  - "7.2"
+  - "7.3"
+  - "7.4"
+  - "8.0"
+
+jobs:
+  include:
+    - name: "Lint ruleset XML file"
+      php: "7.4"
+      addons:
+        apt:
+          - "libxml2-utils"
+      script:
+        - "composer run-script test:xml"
+
+cache:
+  directories:
+    - "${HOME}/.composer/cache"
+
+before_install:
+  - "phpenv config-rm xdebug.ini"
+  - "composer validate --strict"
+
+install:
+  - "composer update --no-interaction"
+
+script:
+  - "composer run-script test:cs"

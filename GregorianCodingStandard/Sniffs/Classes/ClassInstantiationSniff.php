@@ -1,7 +1,9 @@
 <?php
+
 /**
- * Verifies that classes are instantiated with parentheses.
+ * Verifies that classes are instantiated without parentheses.
  *
+ * @package   GregorianCodingStandard
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
@@ -13,9 +15,11 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
+/**
+ * ClassInstantiation sniff.
+ */
 class ClassInstantiationSniff implements Sniff
 {
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -25,9 +29,7 @@ class ClassInstantiationSniff implements Sniff
     public function register()
     {
         return [T_NEW];
-
-    }//end register()
-
+    }
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -91,8 +93,5 @@ class ClassInstantiationSniff implements Sniff
 
         $error = 'Parentheses must not be used when instantiating a new class';
         $phpcsFile->addError($error, $stackPtr, 'ParenthesesFound');
-
-    }//end process()
-
-
-}//end class
+    }
+}
