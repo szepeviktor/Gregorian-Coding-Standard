@@ -4,7 +4,6 @@
         <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
         <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
         <exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/>
-        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
     </rule>
     <!-- Enforce the opposite of excluded sniffs -->
     <rule ref="Squiz.Strings.ConcatenationSpacing"/>
